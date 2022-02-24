@@ -3,14 +3,24 @@
 # Press ⌃R to execute it or replace it with your code.
 # Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
+#  drone wifi name = 6EA
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+from djitellopy import Tello
+from time import sleep
+
+Julisian = Tello()
+Julisian.connect()
+print(Julisian.get_battery(), "%")
+
+input("Ready? ")
+
+Julisian.takeoff()
+Julisian.move_up(120)
+Julisian.rotate_clockwise(360)
+Julisian.flip("f")
+sleep(1)
+Julisian.flip("b")
+sleep(1)
+Julisian.land()
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
